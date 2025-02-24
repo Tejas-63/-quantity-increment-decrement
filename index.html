@@ -9,24 +9,25 @@
       }  
 
          .container {
-width: 270px;
+width: 300px;
+
 padding: 20px;
 margin: 100px auto;
 display: block;
-background-color: chartreuse;
+background-color: rgb(61, 152, 105);
 border-radius: 10px;
-border: 4px solid #8a1212;
+border: 4px solid #3c3333;
 }
 .btn{
-    width: 130px;
+    width: 110px;
     height: 40px;
     font-size:20px;
-    margin-left: 70px;
+    margin-left: 90px;
     border: 20px;
     border-radius: 500px;
     background-color: brown;
     color: aliceblue;
-    
+    margin-top: 20px;
 }
 .img{
     height: 200px;
@@ -34,6 +35,7 @@ border: 4px solid #8a1212;
     margin: 10px auto;
 }
 .quantity-btn-container {
+    font-size: 27px;
             display: flex;
             justify-content: space-around;
         }
@@ -45,17 +47,52 @@ border: 4px solid #8a1212;
     <div class="container" id="container">
       
         <img src="./img/football-shirt.png" class="img"/>
-        <button class="btn">Buy now</button>
+
+        <h2>sport t-shirt</h2>
+        <p>
+          A sports shirt, also known as a sport shirt or performance shirt,
+             is a type of athletic clothing designed to be worn during physical activities.
+              These shirts are made from moisture-wicking fabrics that are breathable and lightweight,
+               allowing the wearer to stay cool and dry during exercise.
+        </p>
+    <h3>Price : -57%  &nbsp;&nbsp;₹ 299/-</h3>
+     <h3> M.R.P.: ₹699</h3>
+        
         <div class="quantity-btn-container">
-            <button type="button" onclick="decrement()">
+            <button type="button" onclick="ChangeQuantity('dec')">
                 -
             </button>
             <span id="quantity">1</span>
-            <button type="button" onclick="increment()">
+            <button type="button" onclick="ChangeQuantity('inc')">
                 +
             </button>
+           
         </div>
- 
+        <div> <button class="btn">Buy now</button>
+        </div>
     </div>
+    <script>
+         const quantityElement = document.getElementById("quantity");
+        let quantity = parseInt(quantityElement.innerText);
+
+        function ChangeQuantity(op) {
+
+            if (quantity == 1 && op == "dec")
+            return
+
+            if (quantity == 7 && op == "inc")
+            return
+
+            if (op === 'inc')
+                ++quantity;
+
+            if (op === 'dec')
+                --quantity;
+            quantityElement.innerText = quantity;
+        }
+       
+       
+    </script>
+
 </body>
 </html>
